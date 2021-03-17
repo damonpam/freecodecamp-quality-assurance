@@ -45,11 +45,19 @@ suite("Functional Tests", function () {
                 });
         });
         // #4
-        test('send {surname: "da Verrazzano"}', function (done) {
-            assert.fail();
-
-            done();
+    test('send {surname: "da Verrazzano"}', function (done) {
+      chai
+        .request(server)
+        .put("/travellers")
+        .send({"surname": "da Verrazzano"})
+        .end(function (err, res) {
+          assert.strictEqual(res.status, 200);
+          assert.strictEqual(res.type, "application/json");
+          assert.strictEqual(res.body.name, "Giovanni");
+          assert.strictEqual(res.body.surname, "da Verrazzano");      
+          done();
         });
+    });
     });
 });
 
