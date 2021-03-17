@@ -63,7 +63,7 @@ suite("Functional Tests", function () {
 });
 
 const Browser = require("zombie");
-Browser.site = 'https://boilerplate-mochachai-3.damonpam.repl.co';
+Browser.site = 'https://freecodecamp-quality-assurance.damonpam.repl.co';
 
 suite("Functional Tests with Zombie.js", function () {
     const browser = new Browser();
